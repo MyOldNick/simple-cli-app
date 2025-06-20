@@ -46,10 +46,6 @@ export class Controller {
     const data: { name?: string; freq?: Freq } = {};
     if (name) data.name = name;
     if (freq) data.freq = freq;
-    if (!Object.keys(data).length) {
-      console.error('No updates');
-      return;
-    }
     const result = await this.service.updateTask(Number(id), data);
     console.table(result);
   }

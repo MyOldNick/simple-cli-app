@@ -124,7 +124,7 @@ export class Service {
 
   async updateTask(id: number, data: Partial<BaseTask>): Promise<BaseTask> {
     try {
-      if (!id) {
+      if (!id || !Object.keys(data)?.length) {
         throw new Error('Task id required');
       }
       return await this.model.update(id, data);
